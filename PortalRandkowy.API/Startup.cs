@@ -30,6 +30,8 @@ namespace PortalRandkowy.API
         {
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddCors();
+            services.AddScoped<IAuthRepository, AuthRepository>();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
